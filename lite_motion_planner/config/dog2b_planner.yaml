@@ -1,0 +1,56 @@
+/**:
+  ros__parameters:
+    urdf_path: "/home/zwt/lite_motion_ws/src/dog2b/urdf/dog2b.urdf"
+    srdf_path: "/home/zwt/lite_motion_ws/src/lite_motion_planner/config/dog2b_simplified.srdf"
+    mesh_package_dirs:
+      - "/home/zwt/lite_motion_ws/src/dog2b"
+
+    default_group: "right_arm"
+    default_ee_frame: "right_tcp"
+    default_left_ee_frame: "left_tcp"
+    default_right_ee_frame: "right_tcp"
+
+    planning_timeout: 2.0
+
+    ik_max_iterations: 100
+    ik_pos_tolerance: 0.001
+    ik_rot_tolerance: 0.001
+    ik_damping: 1.0e-6
+    ik_alpha: 0.5
+    ik_max_step_norm: 0.5
+    ik_max_seed_count: 3
+
+    collision_check_resolution: 0.02
+    trajectory_collision_check_step: 0.05
+    control_period: 0.01
+
+    joint_trajectory_topic: "/joint_trajectory_controller/joint_trajectory"
+
+    target_pose:
+      header:
+        frame_id: camera_right_link
+
+    enable_visualization: true
+    enable_moveit_visualization: true
+    launch_visualization_rviz: true
+    launch_robot_state_publisher: true
+
+    publish_joint_states_for_visualization: true
+    enable_joint_state_playback: true
+    joint_state_playback_loop: false
+    joint_state_playback_speed_scale: 0.7
+
+    publish_moveit_display_trajectory: true
+    publish_moveit_planning_scene: true
+    publish_moveit_monitored_planning_scene: true
+    publish_collision_markers: false
+    publish_e3_marker: true
+    e3_marker_topic: "/haomu_catch/e3_marker"
+    e3_marker_republish_hz: 5.0
+    e3_marker_object_id: "E3"
+
+    moveit_display_trajectory_topic: "/display_planned_path"
+    moveit_planning_scene_topic: "/planning_scene"
+    moveit_monitored_planning_scene_topic: "/monitored_planning_scene"
+    visualization_joint_states_topic: "/joint_states"
+    haomu.object_mesh_scale: [0.001, 0.001, 0.001]

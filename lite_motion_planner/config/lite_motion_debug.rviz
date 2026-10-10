@@ -1,0 +1,79 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+  - Class: rviz_common/Tool Properties
+    Name: Tool Properties
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Time
+    Name: Time
+
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 1
+      Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Plane Cell Count: 20
+      Cell Size: 0.2
+
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Name: TF
+      Show Axes: false
+      Show Names: false
+
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: RobotModel
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+      Visual Enabled: true
+      Collision Enabled: true
+      Alpha: 0.35
+
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: E3Marker
+      Marker Topic:
+        Value: /haomu_catch/e3_marker
+      Namespaces:
+        haomu_catch: true
+      Queue Size: 100
+
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: ReferenceFrames
+      Marker Topic:
+        Value: /haomu_catch/reference_frames
+      Namespaces:
+        p_test_axis: true
+        p_test_label: true
+        zc_f_axis: true
+        zc_f_label: true
+      Queue Size: 10
+
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: base_link
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/Interact
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.0
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0.5
+      Pitch: 0.6
+      Yaw: 0.8

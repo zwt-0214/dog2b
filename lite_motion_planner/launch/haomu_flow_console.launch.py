@@ -1,0 +1,48 @@
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+import os
+
+
+def generate_launch_description():
+    pkg_share = get_package_share_directory('lite_motion_planner')
+    default_params = os.path.join(pkg_share, 'config', 'haomu_flow.yaml')
+
+    params_file_arg = DeclareLaunchArgument('params_file', default_value=default_params)
+    use_rviz_arg = DeclareLaunchArgument('use_rviz', default_value='true')
+    use_rsp_arg = DeclareLaunchArgument('use_robot_state_publisher', default_value='true')
+    rviz_config_arg = DeclareLaunchArgument(
+        'rviz_config',
+        default_value=os.path.join(pkg_share, 'config', 'dhz_4_debug.rviz'))
+
+    planner_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_share, 'launch', 'planning_node.launch.py')),
+        launch_arguments={
+            'params_file': LaunchConfiguration('params_file'),
+            'use_rviz': LaunchConfiguration('use_rviz'),
+            'use_robot_state_publisher': LaunchConfiguration('use_robot_state_publisher'),
+            'rviz_config': LaunchConfiguration('rviz_config'),
+        }.items(),
+    )
+
+    console_node = Node(
+        package='lite_motion_planner',
+        executable='haomu_flow_console',
+        name='haomu_flow_console',
+        output='screen',
+        emulate_tty=True,
+        parameters=[LaunchConfiguration('params_file')],
+    )
+
+    return LaunchDescription([
+        params_file_arg,
+        use_rviz_arg,
+        use_rsp_arg,
+        rviz_config_arg,
+        planner_launch,
+        console_node,
+    ])

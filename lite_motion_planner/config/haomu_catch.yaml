@@ -1,0 +1,206 @@
+/**:
+  ros__parameters:
+    urdf_path: "/home/zwt/lite_motion_ws/src/dog2b/urdf/dog2b.urdf"
+    srdf_path: "/home/zwt/lite_motion_ws/src/lite_motion_planner/config/dog2b_simplified.srdf"
+    mesh_package_dirs:
+      - "/home/zwt/lite_motion_ws/src/dog2b"
+
+    default_group: "right_arm"
+    default_ee_frame: "right_tcp"
+    default_left_ee_frame: "left_tcp"
+    default_right_ee_frame: "right_tcp"
+
+    planning_timeout: 4.0  #单次规划的最大超时时间（秒）
+    ompl_max_plan_attempts: 3  #OMPL 规划器的最大尝试次数
+
+    # ik_max_iterations: 240
+    # ik_pos_tolerance: 0.006
+    # ik_rot_tolerance: 0.05
+    # ik_damping: 2.0e-4       
+    # ik_alpha: 0.35
+    # ik_max_step_norm: 0.35
+    # ik_max_seed_count: 20
+    # 先从默认值开始。如果IK无法收敛，可以尝试增加或放松容差。ik_max_iterations
+    # 如果IK不稳定或振荡，试着增加或减少。ik_dampingik_alpha
+    # 对于非常灵敏的机器人，或者你观察到大关节跳跃，考虑每次迭代限制（你可以测量）。ik_max_step_normnp.linalg.norm(v*DT)
+    # 如果问题高度非线性且收敛不可靠，使用多个初始种子.
+
+
+
+    ik_max_iterations: 300
+    ik_pos_tolerance: 0.003
+    ik_rot_tolerance: 0.08
+    ik_damping: 2.0e-4
+    ik_alpha: 0.55
+    ik_max_step_norm: 1.0
+    ik_max_seed_count: 20
+
+    collision_check_resolution: 0.03
+    trajectory_collision_check_step: 0.05
+    cartesian_max_rotation_step_rad: 0.7853981633974483
+    cartesian_min_interpolation_steps: 3
+    cartesian_max_interpolation_steps: 5
+    cartesian_log_each_waypoint: false
+    control_period: 0.01
+
+    joint_trajectory_topic: "/joint_trajectory_controller/joint_trajectory"
+
+    target_pose:
+      header:
+        frame_id: base_link
+
+    enable_visualization: true
+    enable_moveit_visualization: true
+    launch_visualization_rviz: true
+    launch_robot_state_publisher: true
+
+    publish_joint_states_for_visualization: true
+    enable_joint_state_playback: true
+    joint_state_playback_loop: false
+    joint_state_playback_speed_scale: 1.0
+
+    publish_moveit_display_trajectory: true
+    publish_moveit_planning_scene: true
+    publish_moveit_monitored_planning_scene: true
+    publish_collision_markers: false
+    publish_e3_marker: true
+    e3_marker_topic: "/haomu_catch/e3_marker"
+    e3_marker_republish_hz: 5.0
+    e3_marker_object_id: "E3"
+    relaxed_scene_collision_object_id: "E3"
+    relaxed_scene_collision_links: ["right_tcp", "arm_right_J7_link", "zhua_right_1_link", "zhua_right_2_link"]
+    relaxed_scene_collision_allowed_penetration: 0.005
+
+    moveit_display_trajectory_topic: "/display_planned_path"
+    moveit_planning_scene_topic: "/planning_scene"
+    moveit_monitored_planning_scene_topic: "/monitored_planning_scene"
+    visualization_joint_states_topic: "/joint_states"
+
+    haomu.right_arm_group: "right_arm"
+    haomu.right_hand_group: "right_hand"
+    haomu.left_arm_group: "left_arm"
+    haomu.left_hand_group: "left_hand"
+    haomu.left_tcp_frame: "left_tcp"
+    haomu.right_tcp_frame: "right_tcp"
+    # left arm supports zc_m/zc_l; right arm supports zc_f/zc_r.
+    # Override from launch with arm_side:=left/right and final_target:=zc_*.
+
+
+
+    # haomu.arm_side: "left"
+    # haomu.ee_frame: "left_tcp"
+
+
+    haomu.arm_side: "right"
+    haomu.ee_frame: "right_tcp"
+
+
+
+    haomu.object_id: "E3"
+    haomu.object_mesh_resource: "/home/zwt/E3.STL"
+    haomu.object_mesh_scale: [0.001, 0.001, 0.001]
+
+    haomu.p_test_xyz: [0.5, -0.1, -0.15]
+    haomu.p_test_rpy: [0.0, 0.0, 3.14]
+
+
+
+    # haomu.p_test_xyz: [0.5, 0.3, 0.1]
+    # haomu.p_test_rpy: [0.0, 0.0, 0.0]
+
+
+
+
+    haomu.pregrasp_distance_m: 0.115
+
+  
+    haomu.pregrasp_reference_joint: "arm_right_J1_joint"
+    haomu.grasp_target_ignore_links: ["right_tcp", "right_ccb", "arm_right_J7_link", "zhua_right_1_link", "zhua_right_2_link"]
+
+
+
+    # haomu.pregrasp_reference_joint: "arm_left_J1_joint"
+    # haomu.grasp_target_ignore_links: ["left_tcp", "left_ccb", "arm_left_J7_link", "zhua_left_1_link", "zhua_left_2_link"]
+    haomu.grasp_target_restore_allowed_penetration: 0.005
+
+    haomu.zc_f_xyz: [0.185, 0.0, 0.0725]
+    haomu.zc_f_rpy: [0.0, 0.0, 2.1]
+    #原yaw2.9
+
+    haomu.zc_m_xyz: [0.085, 0.0, 0.0725]
+    haomu.zc_m_rpy: [0.0, 0.0, -1.9]
+
+    haomu.zc_l_xyz: [-0.0016, 0.050, 0.0725]
+    haomu.zc_l_rpy: [0.0, 0.0, -1.6]
+
+    haomu.zc_r_xyz: [-0.0016, -0.050, 0.0725]
+    # haomu.zc_r_rpy: [0.0, 3.14, -1.6]倒着夹
+    haomu.zc_r_rpy: [0.0, 0.0, 1.6]
+    haomu.final_target: "zc_f"
+#2026.5.17dhz其他的轨迹还没录制喵
+
+    haomu.lift_distance_m: 0.11
+    haomu.cartesian_max_step_m: 0.08
+    haomu.cartesian_use_sdls: true
+    haomu.cartesian_nullspace_gain: 0.20
+    haomu.cartesian_singular_threshold: 0.04
+    haomu.cartesian_branch_jump_max_rad: 0.75
+    haomu.cartesian_branch_jump_norm_max: 1.20
+    haomu.cartesian_waypoint_pos_tolerance: 0.0015
+    haomu.cartesian_waypoint_rot_tolerance: 0.020
+    haomu.grasp_yaw_tolerance_rad: 6.283185307179586
+    haomu.grasp_yaw_sample_count: 8
+
+    # Final zc_* stage:
+    # 1) move to zc target with base-z offset (above pose),
+    # 2) then Cartesian drop along base_link -Z.
+    haomu.final_approach_height_m: 0.15 #这里是相对于zc上方的高度
+    haomu.final_drop_distance_m: 0.15
+    haomu.final_drop_cartesian_max_step_m: 0.02
+
+    # During the final above+drop sequence, yaw is sampled around base_link Z
+    # to help avoid robot self/base/cun interference.
+    haomu.final_base_yaw_tolerance_rad: 6.283185307179586
+    haomu.final_base_yaw_sample_count: 32
+
+    # Runtime ignore applied immediately before final above+drop sequence.
+    # Scoped to E3 vs cun_* only, then cleared after final release.
+    haomu.final_relaxed_scene_collision_object_ids: ["E3"]
+    haomu.final_relaxed_scene_collision_links: ["cun_1_link", "cun_2_link", "cun_3_link", "cun_4_link", "base_link"]
+
+    # After release (detach), restore E3-cun collision relation with a small
+    # allowance before moving arm back to home joints.
+    haomu.return_home_relaxed_scene_collision_object_ids: ["E3"]
+    haomu.return_home_relaxed_scene_collision_links: ["cun_1_link", "cun_2_link", "cun_3_link", "cun_4_link", "base_link"]
+    haomu.return_home_relaxed_scene_collision_allowed_penetration: 0.005
+    haomu.return_home_gripper_e3_collision_object_ids: ["E3"]
+    haomu.return_home_gripper_e3_collision_links: ["zhua_left_1_link", "zhua_left_2_link", "zhua_right_1_link", "zhua_right_2_link"]
+    haomu.return_home_gripper_e3_collision_allowed_penetration: 0.002
+    haomu.return_home_j7_retreat_frame: "arm_left_J7_link"
+    haomu.return_home_j7_retreat_distance_m: 0.06
+    haomu.return_home_j7_retreat_cartesian_max_step_m: 0.01
+
+    # false: after opening gripper, E3 is detached from TCP and remains visible/collidable in world scene.
+    # true : restore old behavior, detach then remove E3 from visual/collision scene.
+    haomu.remove_object_after_release: false
+    # Kept for compatibility; new flow keeps E3 in scene through return_home
+    # and removes it only after return_home when this is true.
+    haomu.remove_object_before_return_home: false
+    haomu.home_planning_timeout: 2.0
+    haomu.home_path_check_step: 0.10
+    haomu.home_ompl_max_plan_attempts: 3
+
+    haomu.post_action_wait_sec: 0.05
+    # record_haomu_catch_fixed_tail writes one file per arm/zc target after the zc-above pose.
+    # new_haomu_catch reads the matching arm/zc file and replays drop/open/return_home without IK.
+    haomu.fixed_tail_trajectory_dir: "/home/zwt/lite_motion_ws/src/lite_motion_planner/config"
+    haomu.fixed_tail_trajectory_file: ""
+    haomu.fixed_tail_record_enabled: false
+    haomu.fixed_tail_replay_enabled: true
+    haomu.sequence_loop: true
+    haomu.loop_pause_sec: 0.5
+    haomu.arm_home_positions: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    haomu.hand_open_positions: [0.0, 0.0]
+    haomu.hand_close_positions: [-0.019, 0.019]
+    haomu.service_wait_sec: 30.0
+    haomu.response_wait_sec: 30.0

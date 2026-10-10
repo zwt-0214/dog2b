@@ -1,0 +1,278 @@
+/**:
+  ros__parameters:
+    urdf_path: "/home/zwt/lite_motion_ws/src/dog2b/urdf/dog2b.urdf"
+    srdf_path: "/home/zwt/lite_motion_ws/src/lite_motion_planner/config/dog2b_simplified.srdf"
+    mesh_package_dirs:
+      - "/home/zwt/lite_motion_ws/src/dog2b"
+
+    default_group: "right_arm"
+    default_ee_frame: "right_ccb"
+    default_left_ee_frame: "left_ccb"
+    default_right_ee_frame: "right_ccb"
+
+    planning_timeout: 1.0
+
+    ik_max_iterations: 300 #原1200
+    ik_pos_tolerance: 0.004
+    ik_rot_tolerance: 0.10
+    ik_damping: 2.0e-4
+    ik_alpha: 0.67  #原0.45
+    #高学习率低阻尼鼓励在非笛卡尔时快速找到目标
+    ik_max_step_norm: 1.2 #防跳变参数，但非笛卡尔建议给大
+    ik_max_seed_count: 36
+
+    # 收敛困难 → 增加迭代次数
+    # 计算慢 → 减少迭代次数但增加种子数
+
+
+    collision_check_resolution: 0.01 #mm级分辨率，静态
+    trajectory_collision_check_step: 0.01  #轨迹碰撞采样步长，动态
+
+
+
+
+    cartesian_max_rotation_step_rad: 0.5
+    cartesian_min_interpolation_steps: 4
+    cartesian_segment_length_refinement_max_steps: 6
+    cartesian_diagnostics_enabled: true
+    cartesian_diagnostics_suspicious_path_m: 0.10
+    cartesian_diagnostics_suspicious_ratio: 5.0
+    control_period: 0.01
+
+    joint_trajectory_topic: "/joint_trajectory_controller/joint_trajectory"
+
+    target_pose:
+      header:
+        frame_id: base_link
+
+    enable_visualization: true
+    enable_moveit_visualization: true
+    launch_visualization_rviz: true
+    launch_robot_state_publisher: true
+
+    publish_joint_states_for_visualization: true
+    enable_joint_state_playback: true
+    joint_state_playback_loop: false
+    joint_state_playback_speed_scale: 1.0
+
+    # Use joint-state playback + CollisionScene-derived markers as the factual visualization source.
+    # MoveIt DisplayTrajectory is disabled here because it can replay the robot without attached scene objects.
+    publish_moveit_display_trajectory: false
+    publish_moveit_planning_scene: true
+    publish_moveit_monitored_planning_scene: true
+    # Factual visualization: scene-object markers are generated directly from CollisionScene::sceneObjectInfos().
+    # They reveal whether E3/zz/dhz are actually attached or still world objects.
+    publish_collision_markers: true
+    publish_robot_collision_markers: false
+    publish_e3_marker: false
+    e3_marker_topic: "/dhz_4/e3_marker"
+    e3_marker_republish_hz: 5.0
+    e3_marker_object_id: "E3"
+
+    # E3 is bolted to right_tcp; dhz may lightly contact the right J7/ccb/tcp region during the arc.
+    # These allowances are applied inside the real collision checker, not only in RViz.
+    relaxed_scene_collision_object_id: "E3"
+    relaxed_scene_collision_object_ids: ["E3", "zz", "dhz"]
+    relaxed_scene_collision_links: ["right_tcp", "right_ccb", "arm_right_J7_link", "zhua_right_1_link", "zhua_right_2_link"]
+    # Slightly larger real collision-check allowance for tight E3/zz/dhz contact regions.
+    # This is not a display-only offset; reduce if hardware clearance requires stricter filtering.
+    relaxed_scene_collision_allowed_penetration: 0.009 #碰撞允许穿透深度，单位米
+    # Persistent, full-flow allowance for scene-object contact against gripper fingers only.
+    # Runtime clear/ignore calls do not erase this baseline allowance.
+    gripper_scene_collision_object_ids: ["E3", "zz", "dhz"]
+    gripper_scene_collision_links: ["zhua_left_1_link", "zhua_left_2_link", "zhua_right_1_link", "zhua_right_2_link"]
+    gripper_scene_collision_allowed_penetration: 0.012
+    gripper_self_collision_links: ["zhua_left_1_link", "zhua_left_2_link", "zhua_right_1_link", "zhua_right_2_link"]
+    gripper_self_collision_allowed_penetration: 0.012
+    self_collision_allowed_penetration: 0.002 # 自碰撞允许穿透深度，单位米；调试用
+
+    moveit_display_trajectory_topic: "/display_planned_path"
+    moveit_planning_scene_topic: "/planning_scene"
+    moveit_monitored_planning_scene_topic: "/monitored_planning_scene"
+    visualization_joint_states_topic: "/joint_states"
+
+    dhz4.arm_side: "right"
+    dhz4.left_arm_group: "left_arm"
+    dhz4.left_hand_group: "left_hand"
+    dhz4.left_tcp_frame: "left_tcp"
+    dhz4.left_ccb_frame: "left_ccb"
+    dhz4.right_arm_group: "right_arm"
+    dhz4.right_hand_group: "right_hand"
+    dhz4.right_tcp_frame: "right_tcp"
+    dhz4.right_ccb_frame: "right_ccb"
+    dhz4.left_camera_frame: "camera_left_link"
+    dhz4.right_camera_frame: "camera_right_link"
+    # dhz4.d_test_frame: "camera_right_link" 
+    dhz4.d_test_frame: "base_link" #这里是冻结参考系
+    dhz4.tcp_frame: "right_tcp"
+    dhz4.ccb_frame: "right_ccb"
+
+    dhz4.e3_object_id: "E3"
+    dhz4.e3_mesh_resource: "/home/zwt/E3.STL"
+    dhz4.zz_object_id: "zz"
+    dhz4.zz_mesh_resource: "/home/zwt/zz.STL"
+    dhz4.dhz_object_id: "dhz"
+    dhz4.dhz_mesh_resource: "/home/zwt/dhz.STL"
+    dhz4.mesh_scale: [0.001, 0.001, 0.001]
+
+    # d_test pose is expressed in dhz4.d_test_frame (camera link), then converted
+    # to planning_frame internally before planning/collision operations.
+    # dhz4.d_test_xyz: [0.3, 0.24, 0.08]
+
+    # dhz4.d_test_rpy: [1.57, 1.8, -1.3]
+    # dhz4.d_test_rpy: [0.0,0.0,0.0]
+
+
+
+
+    dhz4.d_test_xyz: [0.33, -0.22, 0.1] #z最高0.1
+
+
+    dhz4.d_test_rpy: [1.2, 0.3, -2.0]
+
+
+    # dhz_4 starts by replaying the fixed startup cache. E3 is created at the
+    # current TCP only after the cached playback reaches its endpoint.
+    dhz4.zc_target: "zc_r"
+    dhz4.fixed_tail_trajectory_dir: "/home/zwt/lite_motion_ws/src/lite_motion_planner/config"
+    # Empty means auto-select: dhz4_fixed_head_<arm_side>_<zc_target>.traj
+    dhz4.fixed_tail_trajectory_file: ""
+
+    # After the original downstream dhz_4 motion finishes: open gripper, detach E3/zz,
+    # remove the released attached objects, then return the right arm to all-zero.
+    dhz4.home_planning_timeout: 1.0
+    dhz4.home_path_check_step: 0.10
+    dhz4.home_ompl_max_plan_attempts: 3
+    # dhz_4 staged collision policy. Negative values mean full ignore for the
+    # runtime pair set; positive values are real FCL penetration allowances.
+
+
+    dhz4.base_group_collision_links: ["base_link", "cun_1_link", "cun_2_link", "cun_3_link", "cun_4_link"]
+
+    dhz4.base_group_collision_allowed_penetration: 0.05
+    dhz4.gripper_e3_ignore_allowed_penetration: -1.0
+    dhz4.frozen_d_test_scene_allowed_penetration: 0.002
+    dhz4.arc7_dhz_collision_allowed_penetration: 0.006
+    dhz4.return_home_self_collision_allowed_penetration: 0.001
+    dhz4.return_home_e3_collision_allowed_penetration: 0.002
+
+    # Cartesian waypoint IK keeps the requested line/arc geometry. If the exact
+    # waypoint has no collision-free IK, planning_node samples yaw about frozen
+    # dhz local +Z in parallel, using the first feasible collision-free sample.
+    # Applies from d_test_pre_offset through arc7 only; arc8 is exact-RPY only.
+    dhz4.yaw_sample_range: [0.8, 2.2]
+    dhz4.yaw_sample_count: 4
+    # Move first to the configured offset along zz/d_test local +Z from d_test.
+    # The following Cartesian approach then moves back along local -Z toward d_test.
+    # The E3/zz contact is established immediately after that negative-Z approach,
+    # before the +Y push.
+    # arc8 uses the same 0.002 m frozen d_test scene allowance; only arc7
+    # temporarily raises dhz allowance to dhz4.arc7_dhz_collision_allowed_penetration.
+    # Prefer physical yaw sampling: for nonzero yaw candidates, temporarily detach zz,
+    # rotate/move arm+tcp+E3, then reattach zz at the current contact point.
+    dhz4.detach_zz_during_attached_chain_yaw_sweep: true
+    # Deprecated and ignored: attached-chain translations/arcs keep zz connected unless
+    # a nonzero yaw candidate is being tested.
+    dhz4.detach_zz_during_attached_chain_motion: false
+
+
+    dhz4.d_test_pre_offset_along_zz_positive_z_m: 0.004
+    dhz4.ccb_approach_distance_m: 0.104
+    #这俩是在zz前方的距离
+
+    dhz4.zz_y_push_distance_m: 0.1 
+    # zz local (0,0,-0.0275) is coincident with the attached E3 contact point.
+    # The E3 relative pose is preserved from the zc grasp instead of forcing a snap to tcp.
+    dhz4.zz_attach_point_xyz_in_zz: [0.0, 0.0, -0.0275]
+    dhz4.zz_attach_point_xyz_in_e3: [0.0, 0.0, 0.0]
+    # Initial zz/E3 attach preserves zz's initial world RPY; this value is only
+    # a fallback if the initial zz pose is unavailable.
+    dhz4.zz_attach_rpy_in_e3: [0.0, 0.0, 0.0]
+
+
+
+
+
+    dhz4.straight_cartesian_max_step_m: 0.044
+    dhz4.arc7_cartesian_max_step_m: 0.040
+    dhz4.arc8_cartesian_max_step_m: 0.006
+    dhz4.min_step_count: 3
+    dhz4.refinement_max_steps: 8
+    dhz4.arc7_refinement_max_steps: 8
+    dhz4.arc8_min_step_count: 9
+    dhz4.arc8_refinement_max_steps: 13
+    dhz4.cartesian_use_request_solver_settings: true
+    #dls参数
+
+    # true now means adaptive SDLS: normal Cartesian waypoints use fast WDLS,
+    # and SDLS/yaw sampling only retry after an extreme near-singular failure.
+    dhz4.cartesian_use_sdls: false
+    dhz4.cartesian_nullspace_gain: 0.3
+    dhz4.cartesian_singular_threshold: 0.006
+
+    dhz4.cartesian_branch_jump_max_rad: 3.20
+    dhz4.cartesian_branch_jump_norm_max: 6.00
+    dhz4.cartesian_waypoint_pos_tolerance: 0.002
+    dhz4.cartesian_waypoint_rot_tolerance: 0.08
+
+
+    dhz4.cartesian_ik_max_iterations: 300
+    dhz4.cartesian_ik_pos_tolerance: 0.01
+    dhz4.cartesian_ik_rot_tolerance: 0.13
+    dhz4.cartesian_ik_damping: 1.5e-3
+    dhz4.cartesian_ik_alpha: 0.80
+
+    dhz4.cartesian_ik_max_step_norm: 2.5
+    #原0.35
+    dhz4.cartesian_ik_max_seed_count: 48
+    dhz4.cartesian_planning_timeout: 1.5
+    dhz4.cartesian_path_check_step: 0.020
+    dhz4.arc7_center_xyz_dhz: [0.0, 0.208, -0.169]
+    dhz4.arc7_roll_angle_rad: -1.57
+
+    dhz4.arc7_pre_solve_d2_enabled: False
+    dhz4.arc7_d2_start_xyz_dhz: [0.0, 0.1, -0.1]
+    dhz4.arc7_d2_start_rpy_dhz: [0.0, 0.0, 1.57]
+    dhz4.arc7_d2_yaw_sample_range: [0.8, 2.2]
+    dhz4.arc7_d2_yaw_sample_count: 3
+    dhz4.arc7_d2_cartesian_max_step_m: 0.08
+    dhz4.arc7_d2_min_step_count: 3
+    dhz4.arc7_d2_refinement_max_steps: 4
+    dhz4.arc7_d2_ik_max_iterations: 180
+    dhz4.arc7_d2_ik_pos_tolerance: 0.01
+    dhz4.arc7_d2_ik_rot_tolerance: 0.2
+    dhz4.arc7_d2_ik_damping: 1.5e-3
+    dhz4.arc7_d2_ik_alpha: 0.90
+    dhz4.arc7_d2_ik_max_step_norm: 2.5
+    dhz4.arc7_d2_ik_max_seed_count: 36
+    dhz4.arc7_d2_max_ik_goal_candidates: 12
+    dhz4.arc7_d2_planning_timeout: 0.80
+    dhz4.arc7_d2_path_check_step: 0.05
+    dhz4.arc7_d2_waypoint_pos_tolerance: 0.012
+    dhz4.arc7_d2_waypoint_rot_tolerance: 0.180
+
+
+
+    dhz4.arc8_center_xyz_dhz: [0.0, 0.223, -0.064]
+    dhz4.arc8_yaw_angle_abs_rad: 1.4 #不用特别多小数
+
+
+    dhz4.r_or_l: 1 #这里调左右臂
+
+    dhz4.post_action_wait_sec: 0.02
+    dhz4.sequence_loop: true
+    dhz4.loop_pause_sec: 0.5
+    dhz4.arm_home_positions: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    dhz4.hand_open_positions: [0.0, 0.0]
+    dhz4.hand_close_positions: [-0.019, 0.019]
+    
+
+
+    # dhz4.right_observe_joint_positions: [1.0, 0.00, 1.57, 1.0, -3.14,0.00,0.00, -0.019, 0.019]
+    # Observe poses: [J1..J7, zhua_1, zhua_2].
+
+    dhz4.right_observe_joint_positions: [0.0, 0.00, 0.0, 0.00, 0.0, 0.00, 0.0, -0.019, 0.019]
+    dhz4.left_observe_joint_positions: [0.0, 0.00, 0.0, 0.0, 0.0, 0.00, 0.0, -0.019, 0.019]
+
+    dhz4.service_wait_sec: 20.0
+    dhz4.response_wait_sec: 20.0

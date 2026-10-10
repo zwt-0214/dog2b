@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="dog2b">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0267398997945313 5.18175450704107E-17 -0.355253139949552"
+        rpy="0 0 0" />
+      <mass
+        value="180.56799405003" />
+      <inertia
+        ixx="9.35298535497669"
+        ixy="-1.00536661432834E-15"
+        ixz="-0.109741649732814"
+        iyy="9.46951890281746"
+        iyz="-6.46668912424139E-17"
+        izz="10.0590553897596" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="arm_left_J1_link">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 0.0406130862808512 6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.251409536608683" />
+      <inertia
+        ixx="0.000182838733607451"
+        ixy="1.14244539622725E-21"
+        ixz="-3.53398230527443E-21"
+        iyy="0.000138892359068048"
+        iyz="4.05288715832336E-20"
+        izz="0.000241251066201879" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_left_J1_joint"
+    type="revolute">
+    <origin
+      xyz="0.16 0.05325 -0.043"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="arm_left_J1_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_left_J2_link">
+    <inertial>
+      <origin
+        xyz="-0.0463991571047452 0 -0.040375"
+        rpy="0 0 0" />
+      <mass
+        value="0.309289472511224" />
+      <inertia
+        ixx="0.00036189263011548"
+        ixy="3.27953233219888E-21"
+        ixz="-9.30652195905439E-21"
+        iyy="0.000741966515294599"
+        iyz="6.98782989204917E-21"
+        izz="0.000547750655159867" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_left_J2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.062 0.040375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J1_link" />
+    <child
+      link="arm_left_J2_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="0"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_left_J3_link">
+    <inertial>
+      <origin
+        xyz="-0.0830527276287116 0.0200162744525873 6.24500451351651E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.578824442721045" />
+      <inertia
+        ixx="0.000418723842209435"
+        ixy="-0.000320867889246841"
+        ixz="-1.08856172783274E-18"
+        iyy="0.00145092786474908"
+        iyz="3.60796816799584E-19"
+        izz="0.0015157477869737" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_left_J3_joint"
+    type="revolute">
+    <origin
+      xyz="-0.106 0 -0.040375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J2_link" />
+    <child
+      link="arm_left_J3_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_left_J4_link">
+    <inertial>
+      <origin
+        xyz="0.0967170243083386 0.0334072534167326 -0.030375"
+        rpy="0 0 0" />
+      <mass
+        value="0.358503788754304" />
+      <inertia
+        ixx="0.000483937258680578"
+        ixy="0.000175980168464432"
+        ixz="1.35123209569187E-18"
+        iyy="0.00117822607642466"
+        iyz="4.65763276996382E-19"
+        izz="0.001116499760959" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_left_J4_joint"
+    type="revolute">
+    <origin
+      xyz="-0.142 0.03624012827631 0.030375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J3_link" />
+    <child
+      link="arm_left_J4_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="0"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_left_J5_link">
+    <inertial>
+      <origin
+        xyz="0.0718904359830099 0.0711567907206707 -1.2490009027033E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.157526173011037" />
+      <inertia
+        ixx="0.000135448838165538"
+        ixy="9.28743772301283E-05"
+        ixz="-7.10668436043219E-20"
+        iyy="0.000201737605964356"
+        iyz="-5.48835423013253E-20"
+        izz="0.000268812793365787" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J5_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J5_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_left_J5_joint"
+    type="revolute">
+    <origin
+      xyz="0.1635 0.0420680232116858 -0.030375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J4_link" />
+    <child
+      link="arm_left_J5_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2.10"
+      upper="3.14"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_left_J6_link">
+    <inertial>
+      <origin
+        xyz="-0.0188157655052787 -0.041088056390503 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.359019248338582" />
+      <inertia
+        ixx="0.000254413403449754"
+        ixy="2.60360063527379E-05"
+        ixz="1.86642058794031E-20"
+        iyy="0.000356028709733229"
+        iyz="-7.59941870391211E-21"
+        izz="0.000369663349221628" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J6_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J6_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_left_J6_joint"
+    type="revolute">
+    <origin
+      xyz="0.0864999999999994 0.056 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J5_link" />
+    <child
+      link="arm_left_J6_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.355"
+      upper="2.355"
+      effort="12.5"
+      velocity="7.0" />
+  </joint>
+  <link
+    name="arm_left_J7_link">
+    <inertial>
+      <origin
+        xyz="0.0124846221359403 -2.77555756156289E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.120353707541247" />
+      <inertia
+        ixx="0.00022566499764466"
+        ixy="1.4330889909439E-19"
+        ixz="-5.57023509064983E-20"
+        iyy="4.89305292543881E-05"
+        iyz="-1.2341705123774E-20"
+        izz="0.000181732299254388" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J7_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_left_J7_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_left_J7_joint"
+    type="revolute">
+    <origin
+      xyz="0.022 -0.046 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J6_link" />
+    <child
+      link="arm_left_J7_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-2.355"
+      upper="2.355"
+      effort="12.5"
+      velocity="7.0" />
+  </joint>
+  <link
+    name="zhua_left_1_link">
+    <inertial>
+      <origin
+        xyz="-0.00737230182323878 -0.0548544354168548 0.00152000000000008"
+        rpy="0 0 0" />
+      <mass
+        value="0.0361306154345396" />
+      <inertia
+        ixx="6.42160106880336E-06"
+        ixy="9.20157696678566E-07"
+        ixz="1.28305796702581E-20"
+        iyy="2.30345158966105E-05"
+        iyz="2.11032350312269E-21"
+        izz="1.82596342703121E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_left_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_left_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="left_tcp" />
+  <joint
+    name="left_tcp_joint"
+    type="fixed">
+    <origin
+      xyz="0.059 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J7_link" />
+    <child
+      link="left_tcp" />
+  </joint>
+  <link
+    name="left_ccb" />
+  <joint
+    name="left_ccb_joint"
+    type="fixed">
+    <origin
+      xyz="0.059 0 -0.0725"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J7_link" />
+    <child
+      link="left_ccb" />
+  </joint>
+
+  <joint
+    name="zhua_left_1_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0625500000000007 0.00200184851200427 -0.00152000000000002"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J7_link" />
+    <child
+      link="zhua_left_1_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.019"
+      upper="0"
+      effort="168"
+      velocity="0.28" />
+  </joint>
+  <link
+    name="zhua_left_2_link">
+    <inertial>
+      <origin
+        xyz="-0.00737230182323867 0.0508507383928461 0.00152000000000008"
+        rpy="0 0 0" />
+      <mass
+        value="0.0361306154345396" />
+      <inertia
+        ixx="6.42160106880334E-06"
+        ixy="-9.2015769667859E-07"
+        ixz="9.94412831080153E-21"
+        iyy="2.30345158966104E-05"
+        iyz="2.08656781593831E-21"
+        izz="1.82596342703121E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_left_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_left_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="zhua_left_2_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0625500000000007 0.00200184851200427 -0.00152000000000002"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J7_link" />
+    <child
+      link="zhua_left_2_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0.019"
+      effort="168"
+      velocity="0.28" />
+    <mimic
+      joint="zhua_left_1_joint"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="camera_left_link">
+    <inertial>
+      <origin
+        xyz="-0.0125708918727065 -1.11022302462516E-16 6.24500451351651E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.121199854867408" />
+      <inertia
+        ixx="7.77138291376755E-05"
+        ixy="3.3208113498725E-20"
+        ixz="8.98886111236323E-21"
+        iyy="7.84666257090887E-05"
+        iyz="1.022379654554E-09"
+        izz="1.04056862297295E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/camera_left_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/camera_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_left_joint"
+    type="fixed">
+    <origin
+      xyz="0.05345 0.113308023211686 -0.030375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_left_J4_link" />
+    <child
+      link="camera_left_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="arm_right_J1_link">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -0.0406130862808512 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.251409536608683" />
+      <inertia
+        ixx="0.000182838733607451"
+        ixy="-1.31365642627158E-20"
+        ixz="4.8523618047178E-21"
+        iyy="0.000138892359068048"
+        iyz="2.25219855262278E-20"
+        izz="0.000241251066201879" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_right_J1_joint"
+    type="revolute">
+    <origin
+      xyz="0.16 -0.05325 -0.043"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="arm_right_J1_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.0"
+      upper="3.14"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_right_J2_link">
+    <inertial>
+      <origin
+        xyz="-0.0463991571047452 0 -0.040375"
+        rpy="0 0 0" />
+      <mass
+        value="0.309289472511224" />
+      <inertia
+        ixx="0.00036189263011548"
+        ixy="3.60059340616567E-20"
+        ixz="-5.09933321078552E-21"
+        iyy="0.000741966515294599"
+        iyz="5.35931806108539E-21"
+        izz="0.000547750655159867" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_right_J2_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.062 0.040375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J1_link" />
+    <child
+      link="arm_right_J2_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_right_J3_link">
+    <inertial>
+      <origin
+        xyz="-0.0830527276287117 -0.0200162744525873 -9.71445146547012E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.578824442721045" />
+      <inertia
+        ixx="0.000418723842209431"
+        ixy="0.00032086788924684"
+        ixz="1.43187755903828E-18"
+        iyy="0.00145092786474908"
+        iyz="3.50924714805867E-19"
+        izz="0.0015157477869737" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_right_J3_joint"
+    type="revolute">
+    <origin
+      xyz="-0.106 0 -0.040375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J2_link" />
+    <child
+      link="arm_right_J3_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_right_J4_link">
+    <inertial>
+      <origin
+        xyz="0.0967170243083386 -0.0334072534167326 -0.030375"
+        rpy="0 0 0" />
+      <mass
+        value="0.358503788754304" />
+      <inertia
+        ixx="0.000483937258680573"
+        ixy="-0.000175980168464432"
+        ixz="4.88680786980721E-19"
+        iyy="0.00117822607642466"
+        iyz="6.40706077863624E-20"
+        izz="0.001116499760959" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_right_J4_joint"
+    type="revolute">
+    <origin
+      xyz="-0.142 -0.0362401282763099 0.0303749999999999"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J3_link" />
+    <child
+      link="arm_right_J4_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_right_J5_link">
+    <inertial>
+      <origin
+        xyz="0.0718904359830085 -0.0711567907206712 5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.157526173011037" />
+      <inertia
+        ixx="0.000135448838165539"
+        ixy="-9.28743772301285E-05"
+        ixz="9.73395431860544E-20"
+        iyy="0.000201737605964356"
+        iyz="-6.37862495524709E-20"
+        izz="0.000268812793365787" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J5_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J5_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_right_J5_joint"
+    type="revolute">
+    <origin
+      xyz="0.1635 -0.0420680232116858 -0.0303749999999999"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J4_link" />
+    <child
+      link="arm_right_J5_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="2.10"
+      effort="27"
+      velocity="4.0" />
+  </joint>
+  <link
+    name="arm_right_J6_link">
+    <inertial>
+      <origin
+        xyz="-0.0188157655052793 0.041088056390503 6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.359019248338582" />
+      <inertia
+        ixx="0.000254413403449754"
+        ixy="-2.60360063527378E-05"
+        ixz="-3.57412501147894E-20"
+        iyy="0.000356028709733229"
+        iyz="6.53015615448651E-21"
+        izz="0.000369663349221628" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J6_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J6_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_right_J6_joint"
+    type="revolute">
+    <origin
+      xyz="0.0865 -0.056 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J5_link" />
+    <child
+      link="arm_right_J6_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-2.355"
+      upper="2.355"
+      effort="12.5"
+      velocity="7.0" />
+  </joint>
+  <link
+    name="arm_right_J7_link">
+    <inertial>
+      <origin
+        xyz="0.0124846221359398 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.120353707541247" />
+      <inertia
+        ixx="0.00022566499764466"
+        ixy="-1.24218116872133E-20"
+        ixz="8.00781358893871E-21"
+        iyy="4.8930529254388E-05"
+        iyz="-2.04154104209683E-20"
+        izz="0.000181732299254388" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J7_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/arm_right_J7_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_right_J7_joint"
+    type="revolute">
+    <origin
+      xyz="0.022 0.046 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J6_link" />
+    <child
+      link="arm_right_J7_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-2.355"
+      upper="2.355"
+      effort="12.5"
+      velocity="7.0" />
+  </joint>
+  <link
+    name="zhua_right_1_link">
+    <inertial>
+      <origin
+        xyz="-0.00737230182323875 -0.0508507383928462 0.00152000000000011"
+        rpy="0 0 0" />
+      <mass
+        value="0.0361306154345396" />
+      <inertia
+        ixx="6.42160106880335E-06"
+        ixy="9.20157696678574E-07"
+        ixz="-8.35063596523849E-21"
+        iyy="2.30345158966105E-05"
+        iyz="1.00265149487265E-22"
+        izz="1.82596342703121E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_right_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_right_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="right_tcp" />
+  <joint
+    name="right_tcp_joint"
+    type="fixed">
+    <origin
+      xyz="0.059 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J7_link" />
+    <child
+      link="right_tcp" />
+  </joint>
+  <link
+    name="right_ccb" />
+  <joint
+    name="right_ccb_joint"
+    type="fixed">
+    <origin
+      xyz="0.059 0 -0.0725"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J7_link" />
+    <child
+      link="right_ccb" />
+  </joint>
+
+  <joint
+    name="zhua_right_1_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0625500000000001 -0.00200184851200427 -0.0015200000000001"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J7_link" />
+    <child
+      link="zhua_right_1_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.019"
+      upper="0"
+      effort="168"
+      velocity="0.28" />
+  </joint>
+  <link
+    name="zhua_right_2_link">
+    <inertial>
+      <origin
+        xyz="-0.00737230182323872 0.0548544354168548 0.00152000000000009"
+        rpy="0 0 0" />
+      <mass
+        value="0.0361306154345396" />
+      <inertia
+        ixx="6.42160106880335E-06"
+        ixy="-9.20157696678572E-07"
+        ixz="-2.27546575080581E-21"
+        iyy="2.30345158966105E-05"
+        iyz="-6.17597555003508E-22"
+        izz="1.82596342703121E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_right_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/zhua_right_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="zhua_right_2_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0625500000000001 -0.00200184851200427 -0.0015200000000001"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J7_link" />
+    <child
+      link="zhua_right_2_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0.019"
+      effort="168"
+      velocity="0.28" />
+    <mimic
+      joint="zhua_right_1_joint"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="camera_right_link">
+    <inertial>
+      <origin
+        xyz="-0.0125708920280809 -3.25452442773155E-11 1.1980764991204E-10"
+        rpy="0 0 0" />
+      <mass
+        value="0.12119985300861" />
+      <inertia
+        ixx="7.77138264773677E-05"
+        ixy="-4.53819572085663E-14"
+        ixz="1.61751042952695E-13"
+        iyy="7.84666227326352E-05"
+        iyz="1.02264984833979E-09"
+        izz="1.04056861441082E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/camera_right_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/camera_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_right_joint"
+    type="fixed">
+    <origin
+      xyz="0.0534500000000001 -0.113308023211686 -0.030375"
+      rpy="0 0 0" />
+    <parent
+      link="arm_right_J4_link" />
+    <child
+      link="camera_right_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cun_1_link">
+    <inertial>
+      <origin
+        xyz="0.185 1.30690337932361E-17 0.0418901384083045"
+        rpy="0 0 0" />
+      <mass
+        value="0.090792027688745" />
+      <inertia
+        ixx="6.85153853819897E-05"
+        ixy="-6.82276154350035E-22"
+        ixz="1.38715293011077E-21"
+        iyy="6.85153853819897E-05"
+        iyz="1.02427459594649E-21"
+        izz="1.43824624955464E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="cun_1_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="cun_1_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cun_2_link">
+    <inertial>
+      <origin
+        xyz="0.0849999999999999 -7.66771026424361E-18 0.0418901384083045"
+        rpy="0 0 0" />
+      <mass
+        value="0.090792027688745" />
+      <inertia
+        ixx="6.85153853819897E-05"
+        ixy="-4.41162993361612E-23"
+        ixz="-4.29332497864893E-23"
+        iyy="6.85153853819897E-05"
+        iyz="1.42332338174521E-21"
+        izz="1.43824624955464E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="cun_2_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="cun_2_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cun_3_link">
+    <inertial>
+      <origin
+        xyz="-0.00160254037844406 0.0499999999999998 0.0418901384083045"
+        rpy="0 0 0" />
+      <mass
+        value="0.090792027688745" />
+      <inertia
+        ixx="6.85153853819897E-05"
+        ixy="0"
+        ixz="-4.63991213386659E-22"
+        iyy="6.85153853819897E-05"
+        iyz="1.42332338174521E-21"
+        izz="1.43824624955464E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="cun_3_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="cun_3_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cun_4_link">
+    <inertial>
+      <origin
+        xyz="-0.00160254037844402 -0.0499999999999998 0.0418901384083045"
+        rpy="0 0 0" />
+      <mass
+        value="0.090792027688745" />
+      <inertia
+        ixx="6.85153853819897E-05"
+        ixy="0"
+        ixz="-3.95863644475781E-22"
+        iyy="6.85153853819897E-05"
+        iyz="1.42332338174521E-21"
+        izz="1.43824624955464E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dog2b/meshes/cun_4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="cun_4_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="cun_4_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
